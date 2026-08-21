@@ -1,0 +1,21 @@
+# Operating-system and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+*.tmp
+
+# Sensitive or private material
+*.key
+*.pem
+*.pfx
+*.p12
+*.env
+secrets/
+private/
+
+# Raw captures and large working files are reviewed before publication
+*.pcap
+*.pcapng
+*.evtx
+*.dmp
