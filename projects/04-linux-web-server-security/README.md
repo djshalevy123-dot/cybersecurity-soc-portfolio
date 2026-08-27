@@ -28,3 +28,6 @@ The server remained reachable and functional after hardening, with reduced banne
 
 Linux administration, network configuration, web-service deployment, service troubleshooting, secure configuration, change validation, and documentation.
 
+## Project Evidence
+
+📸 [View screenshots and supporting evidence](evidence/README.md)
