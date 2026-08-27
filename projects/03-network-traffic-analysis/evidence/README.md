@@ -21,3 +21,7 @@ Screenshots and supporting evidence for the Network Traffic Analysis project.
 
 ### 6. No Post-Scan Payload Identified
 <img src="https://raw.githubusercontent.com/djshalevy123-dot/cybersecurity-soc-portfolio/main/projects/03-network-traffic-analysis/evidence/06-no-post-scan-payload.jpeg" width="750">
+
+## Project Evidence
+
+📸 [View screenshots and supporting evidence](evidence/README.md)
