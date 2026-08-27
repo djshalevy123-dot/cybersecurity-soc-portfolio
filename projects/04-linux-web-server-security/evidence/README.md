@@ -24,3 +24,7 @@ Screenshots and supporting evidence for the Linux Web Server Security project.
 
 ### 7. Web Server Operational After Hardening
 <img src="https://raw.githubusercontent.com/djshalevy123-dot/cybersecurity-soc-portfolio/main/projects/04-linux-web-server-security/evidence/07-web-server-operational.jpeg" width="750">
+
+## Project Evidence
+
+📸 [View screenshots and supporting evidence](evidence/README.md)
