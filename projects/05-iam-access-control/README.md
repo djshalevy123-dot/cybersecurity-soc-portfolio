@@ -30,3 +30,6 @@ Role separation and least privilege were successfully enforced. Authorized opera
 
 Identity lifecycle management, authorization design, ACLs, delegated administration, service-account security, control validation, remediation, and audit-ready documentation.
 
+## Project Evidence
+
+📸 [View screenshots and supporting evidence](evidence/README.md)
