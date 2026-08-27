@@ -30,3 +30,6 @@ The alert logic correctly identified suspicious syntax. The activity was an auth
 
 Alert triage, evidence preservation, event correlation, severity and priority assignment, SLA tracking, analyst decision-making, timeline construction, and professional closure documentation.
 
+## Project Evidence
+
+📸 [View screenshots and supporting evidence](evidence/README.md)
