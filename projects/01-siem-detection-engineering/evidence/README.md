@@ -20,3 +20,7 @@
 
 #### 7. Detailed Process Correlation
 <img src="https://raw.githubusercontent.com/djshalevy123-dot/cybersecurity-soc-portfolio/main/projects/01-siem-detection-engineering/evidence/07-sysmon-detailed-correlation.png" width="750">
+
+## Project Evidence
+
+📸 [View screenshots and supporting evidence](evidence/README.md)
