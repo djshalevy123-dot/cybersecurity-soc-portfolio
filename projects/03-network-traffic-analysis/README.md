@@ -27,3 +27,6 @@ The capture contained clear reconnaissance indicators, but no evidence of post-s
 
 Capture filtering, endpoint identification, TCP flag interpretation, scan analysis, timeline reasoning, and evidence-based conclusions with appropriate limitations.
 
+## Project Evidence
+
+📸 [View screenshots and supporting evidence](evidence/README.md)
