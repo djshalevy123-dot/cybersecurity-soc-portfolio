@@ -21,3 +21,7 @@ Screenshots and supporting evidence for the Ticketing & Incident Management proj
 
 ### 6. Triggered Splunk Alert
 <img src="https://raw.githubusercontent.com/djshalevy123-dot/cybersecurity-soc-portfolio/main/projects/02-ticketing-incident-management/evidence/06-splunk-alert-triggered.png" width="750">
+
+## Project Evidence
+
+📸 [View screenshots and supporting evidence](evidence/README.md)
