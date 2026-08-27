@@ -55,6 +55,3 @@ Screenshots and supporting evidence for the IAM & Access Control project.
   <img src="https://raw.githubusercontent.com/djshalevy123-dot/cybersecurity-soc-portfolio/main/projects/05-iam-access-control/evidence/10-contractor-offboarding-completed.jpeg" width="750">
 </p>
 
-## Project Evidence
-
-📸 [View screenshots and supporting evidence](evidence/README.md)
