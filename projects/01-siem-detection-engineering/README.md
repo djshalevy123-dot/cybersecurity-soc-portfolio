@@ -37,3 +37,6 @@ The SIEM successfully detected the test PowerShell command and preserved the evi
 
 SIEM onboarding, Windows telemetry, SPL searches, XML field extraction, correlation, alert creation, troubleshooting, and detection validation.
 
+## Project Evidence
+
+📸 [View screenshots and supporting evidence](evidence/README.md)
