@@ -39,9 +39,7 @@ A Splunk scheduled alert detected PowerShell execution with the `ExecutionPolicy
 ## Documentation
 
 - [English Portfolio Overview](docs/Shalev_Yehosua_Cybersecurity_Portfolio_Overview_EN.docx)
-- [Hebrew Portfolio Overview](docs/Shalev_Yehosua_Cybersecurity_Portfolio_Overview_HE.docx)
-- [Hebrew repository guide](README_HE.md)
-- [Public publication checklist](PUBLICATION_CHECKLIST.md)
+
 
 ## Lab Architecture
 
