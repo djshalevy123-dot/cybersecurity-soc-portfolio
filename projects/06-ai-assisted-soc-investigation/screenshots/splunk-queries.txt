@@ -1,0 +1,113 @@
+AI-Assisted SOC Investigation - Splunk Queries
+================================================
+
+1. Search for the lab activity
+--------------------------------
+index=* sourcetype="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational"
+("AI-SOC-Test" OR "whoami.exe")
+
+
+2. Build process timeline
+--------------------------------
+index=* sourcetype="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational"
+("AI-SOC-Test" OR "whoami.exe")
+| rex field=_raw "<EventID>(?<EventID>\d+)</EventID>"
+| rex field=_raw "Data Name='ProcessId'>(?<ProcessId>\d+)<"
+| rex field=_raw "Data Name='Image'>(?<Image>[^<]+)<"
+| rex field=_raw "Data Name='CommandLine'>(?<CommandLine>[^<]+)<"
+| rex field=_raw "Data Name='User'>(?<User>[^<]+)<"
+| rex field=_raw "Data Name='ParentProcessId'>(?<ParentProcessId>\d+)<"
+| rex field=_raw "Data Name='ParentImage'>(?<ParentImage>[^<]+)<"
+| table _time EventID ProcessId Image User ParentProcessId ParentImage CommandLine
+| sort _time
+
+
+3. Find parent process PID 6380
+--------------------------------
+index=* sourcetype="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational"
+| rex field=_raw "<EventID>(?<EventID>\d+)</EventID>"
+| rex field=_raw "Data Name='ProcessId'>(?<ProcessId>\d+)<"
+| rex field=_raw "Data Name='Image'>(?<Image>[^<]+)<"
+| rex field=_raw "Data Name='CommandLine'>(?<CommandLine>[^<]+)<"
+| rex field=_raw "Data Name='User'>(?<User>[^<]+)<"
+| rex field=_raw "Data Name='ParentProcessId'>(?<ParentProcessId>\d+)<"
+| rex field=_raw "Data Name='ParentImage'>(?<ParentImage>[^<]+)<"
+| search EventID=1 ProcessId=6380
+| table _time EventID ProcessId Image User ParentProcessId ParentImage CommandLine
+| sort _time
+
+
+4. Find RuntimeBroker PID 7396
+--------------------------------
+index=* sourcetype="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational"
+| rex field=_raw "<EventID>(?<EventID>\d+)</EventID>"
+| rex field=_raw "Data Name='ProcessId'>(?<ProcessId>\d+)<"
+| rex field=_raw "Data Name='Image'>(?<Image>[^<]+)<"
+| rex field=_raw "Data Name='CommandLine'>(?<CommandLine>[^<]+)<"
+| rex field=_raw "Data Name='User'>(?<User>[^<]+)<"
+| rex field=_raw "Data Name='ParentProcessId'>(?<ParentProcessId>\d+)<"
+| rex field=_raw "Data Name='ParentImage'>(?<ParentImage>[^<]+)<"
+| search EventID=1 ProcessId=7396
+| table _time EventID ProcessId Image User ParentProcessId ParentImage CommandLine
+| sort _time
+
+
+5. Find svchost PID 772 and service group
+--------------------------------
+index=* sourcetype="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational"
+| rex field=_raw "<EventID>(?<EventID>\d+)</EventID>"
+| rex field=_raw "Data Name='ProcessId'>(?<ProcessId>\d+)<"
+| rex field=_raw "Data Name='Image'>(?<Image>[^<]+)<"
+| rex field=_raw "Data Name='CommandLine'>(?<CommandLine>[^<]+)<"
+| rex field=_raw "Data Name='User'>(?<User>[^<]+)<"
+| rex field=_raw "Data Name='ParentProcessId'>(?<ParentProcessId>\d+)<"
+| rex field=_raw "Data Name='ParentImage'>(?<ParentImage>[^<]+)<"
+| search EventID=1 ProcessId=772
+| table _time ProcessId Image User ParentProcessId ParentImage CommandLine
+| sort _time
+
+
+6. Validate PID 6380 process activity by ProcessGuid
+--------------------------------
+index=* sourcetype="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational"
+| rex field=_raw "<EventID>(?<EventID>\d+)</EventID>"
+| rex field=_raw "Data Name='ProcessGuid'>(?<ThisProcessGuid>[^<]+)<"
+| rex field=_raw "Data Name='ProcessId'>(?<ProcessId>\d+)<"
+| rex field=_raw "Data Name='Image'>(?<Image>[^<]+)<"
+| rex field=_raw "Data Name='CommandLine'>(?<CommandLine>[^<]+)<"
+| rex field=_raw "Data Name='TargetFilename'>(?<TargetFilename>[^<]+)<"
+| search ThisProcessGuid="{abe1dc79-4432-6ab9-2801-000000002c00}"
+| table _time EventID ProcessId Image CommandLine TargetFilename ThisProcessGuid
+| sort _time
+
+
+7. Find child processes created by PID 6380
+--------------------------------
+index=* sourcetype="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational"
+| rex field=_raw "<EventID>(?<EventID>\d+)</EventID>"
+| rex field=_raw "Data Name='ProcessGuid'>(?<ProcessGuid>[^<]+)<"
+| rex field=_raw "Data Name='ParentProcessGuid'>(?<ParentProcessGuid>[^<]+)<"
+| rex field=_raw "Data Name='ProcessId'>(?<ProcessId>\d+)<"
+| rex field=_raw "Data Name='Image'>(?<Image>[^<]+)<"
+| rex field=_raw "Data Name='CommandLine'>(?<CommandLine>[^<]+)<"
+| rex field=_raw "Data Name='User'>(?<User>[^<]+)<"
+| search EventID=1 ParentProcessGuid="{abe1dc79-4432-6ab9-2801-000000002c00}"
+| table _time ProcessId Image User CommandLine
+| sort _time
+
+
+8. Validate network and DNS activity for investigated process
+--------------------------------
+index=* sourcetype="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational"
+| rex field=_raw "<EventID>(?<EventID>\d+)</EventID>"
+| rex field=_raw "Data Name='ProcessGuid'>(?<ThisProcessGuid>[^<]+)<"
+| rex field=_raw "Data Name='ProcessId'>(?<ProcessId>\d+)<"
+| rex field=_raw "Data Name='Image'>(?<Image>[^<]+)<"
+| rex field=_raw "Data Name='DestinationIp'>(?<DestinationIp>[^<]+)<"
+| rex field=_raw "Data Name='DestinationPort'>(?<DestinationPort>\d+)<"
+| rex field=_raw "Data Name='QueryName'>(?<QueryName>[^<]+)<"
+| rex field=_raw "Data Name='TargetObject'>(?<TargetObject>[^<]+)<"
+| rex field=_raw "Data Name='TargetFilename'>(?<TargetFilename>[^<]+)<"
+| search ThisProcessGuid="{abe1dc79-45bb-6ab9-b801-000000002c00}"
+| table _time EventID ProcessId Image DestinationIp DestinationPort QueryName TargetObject TargetFilename
+| sort _time
