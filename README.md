@@ -3,7 +3,7 @@
 **Shalev Yehosua**  
 Target role: **SOC Tier 1 / Junior Security Analyst**
 
-This repository presents five hands-on cybersecurity projects completed in an isolated and authorized lab. The portfolio follows an end-to-end analyst workflow: collect telemetry, detect suspicious activity, investigate evidence, make a decision, respond, and document the outcome.
+This repository presents six hands-on cybersecurity projects completed in an isolated and authorized lab. The portfolio follows an end-to-end analyst workflow: collect telemetry, detect suspicious activity, investigate evidence, make a decision, respond, and document the outcome.
 
 ## Portfolio at a Glance
 
@@ -14,6 +14,7 @@ This repository presents five hands-on cybersecurity projects completed in an is
 | 03 | [Network Traffic Analysis](projects/03-network-traffic-analysis/) | Wireshark, PCAP, Nmap, TCP/IP | Identified scan activity involving ports 135, 139, and 445 and found no evidence of post-scan compromise. |
 | 04 | [Linux Web Server Security](projects/04-linux-web-server-security/) | Ubuntu Server, Apache, systemd, netplan | Deployed and hardened a reachable Apache service with repeatable validation checks. |
 | 05 | [IAM & Access Control](projects/05-iam-access-control/) | Linux ACLs, sudoers, password aging, user lifecycle | Implemented least privilege and verified access with positive and negative authorization tests. |
+| 06 | [AI-Assisted SOC Investigation](projects/06-ai-assisted-soc-investigation) | Sysmon, Splunk, PowerShell, AI Copilot | Investigated a controlled PowerShell alert, validated AI-generated investigation recommendations, reconstructed the full process ancestry, and closed the activity as benign based on verified telemetry. |
 
 ## Featured Case Study — INC-2026-001
 
