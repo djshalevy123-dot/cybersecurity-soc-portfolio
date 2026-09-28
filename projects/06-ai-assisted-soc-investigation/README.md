@@ -249,3 +249,25 @@ Final Verdict
 ```
 
 **AI accelerates the investigation; the analyst validates the evidence and owns the decision.**
+
+## Investigation Screenshots
+### Sysmon PowerShell Event
+![Sysmon PowerShell Event](screenshots/01-sysmon-powershell-event.jpeg)
+
+### whoami Child Process
+![whoami Child Process](screenshots/02-whoami-child-process.jpeg)
+
+### Splunk Process Chain
+![Splunk Process Chain](screenshots/03-splunk-process-chain.png)
+
+### RuntimeBroker Parent Investigation
+![RuntimeBroker Parent](screenshots/04-runtimebroker-parent.png)
+
+### svchost DCOM Launch Validation
+![svchost DCOM Launch](screenshots/05-svchost-dcomlaunch.png)
+
+### ProcessGuid Validation
+![ProcessGuid Validation](screenshots/06-processguid-validation.png)
+
+### Network Validation
+![Network Validation](screenshots/07-network-validation.png)
